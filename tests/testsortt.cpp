@@ -1,8 +1,5 @@
 #include <catch.hpp>
-#include <quick.h>
-#include <insert.h>
-#include <merge.h>
-#include <quick.h>
+#include <kurs_test.h>
 
 
 
