@@ -34,7 +34,7 @@ install(EXPORT insert-config DESTINATION cmake)
 
 if(BUILD_TESTS)
   enable_testing()
-  file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/testsortinsert.cpp)
+  file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
   add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
   target_link_libraries(check ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
   add_test(NAME check COMMAND check "-s" "-r" "compact" "--use-colour" "yes")
