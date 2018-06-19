@@ -40,7 +40,7 @@ if(BUILD_TESTS)
   add_test(NAME check COMMAND check "-s" "-r" "compact" "--use-colour" "yes")
   endif()
 
-
+/*
 project(merge)
 set(MERGE_VERSION_MAJOR 0)
 set(MERGE_VERSION_MINOR 1)
@@ -75,6 +75,6 @@ if(BUILD_TESTS)
   target_link_libraries(check1 ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
   add_test(NAME check1 COMMAND check1 "-s" "-r" "compact" "--use-colour" "yes")
 
-endif()
+endif() */
 
 
