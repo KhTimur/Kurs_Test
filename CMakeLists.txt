@@ -22,17 +22,6 @@ target_include_directories(insert PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 
-if(BUILD_EXAMPLES)
-  file(GLOB EXAMPLE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp")
-  foreach(EXAMPLE_SOURCE ${EXAMPLE_SOURCES})
-    get_filename_component(EXAMPLE_NAME ${EXAMPLE_SOURCE} NAME_WE)
-    add_executable(${EXAMPLE_NAME} ${EXAMPLE_SOURCE})
-    target_link_libraries(${EXAMPLE_NAME} insert)
-    install(TARGETS ${EXAMPLE_NAME}
-      RUNTIME DESTINATION bin
-    )
-  endforeach(EXAMPLE_SOURCE ${EXAMPLE_SOURCES})
-endif()
 
 install(TARGETS insert
     EXPORT insert-config
@@ -45,7 +34,7 @@ install(EXPORT insert-config DESTINATION cmake)
 
 if(BUILD_TESTS)
   enable_testing()
-  file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
+  file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/testsortinsert.cpp)
   add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
   target_link_libraries(check ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
   add_test(NAME check COMMAND check "-s" "-r" "compact" "--use-colour" "yes")
@@ -81,10 +70,10 @@ install(EXPORT merge-config DESTINATION cmake)
 
 if(BUILD_TESTS)
   enable_testing()
-  file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
+  file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/testsortmerge.cpp)
   add_executable(check1 ${${PROJECT_NAME}_TEST_SOURCES})
   target_link_libraries(check1 ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
-  add_test(NAME check COMMAND check1 "-s" "-r" "compact" "--use-colour" "yes")
+  add_test(NAME check1 COMMAND check1 "-s" "-r" "compact" "--use-colour" "yes")
 
 endif()
 
