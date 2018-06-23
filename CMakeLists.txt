@@ -35,7 +35,7 @@ install(EXPORT insert-config DESTINATION cmake)
 
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
-install(EXPORT merge-config DESTINATION cmake)
+install(EXPORT insert-config DESTINATION cmake)
 
 if(BUILD_TESTS)
   enable_testing()
