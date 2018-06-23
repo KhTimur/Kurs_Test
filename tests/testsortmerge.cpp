@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include <merge.h>
+#include <merge_sort.h>
 
 SCENARIO("SORT") {	
 	int nums3[] = { 9,1,7,2,5,8,3,6,4 };
