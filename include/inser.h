@@ -1,1 +1,1 @@
-void inser(int *, int *);
+void inser(int * begi, int * en);
