@@ -1,1 +1,1 @@
-void merge_sort(int * , int *);
+void merge_sort(int * begi , int * en);
