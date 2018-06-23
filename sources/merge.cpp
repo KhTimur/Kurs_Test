@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-using namespace std;
+
 
 void inplmerg (int* begi, int* middle, int* en)
 {
