@@ -6,6 +6,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_TESTS "Build tests" OFF)
 
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.19.123.tar.gz"
+    SHA1 "57d07480686f82ddc916a5980b4f2a18e5954c2b"
+)
+
 project(insert)
 set(INSERT_VERSION_MAJOR 0)
 set(INSERT_VERSION_MINOR 1)
@@ -40,10 +46,12 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
 install(EXPORT insert-config DESTINATION cmake)
 
 if(BUILD_TESTS)
+  hunter_add_package(Catch)
+  find_package(Catch CONFIG REQUIRED)
   enable_testing()
   file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
   add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
-  target_link_libraries(check ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
+  target_link_libraries(check ${PROJECT_NAME} Catch::Catch )
   add_test(NAME check COMMAND check "-s" "-r" "compact" "--use-colour" "yes")
 
 endif()
