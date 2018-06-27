@@ -16,7 +16,9 @@ ${INSERT_VERSION_MAJOR}.${INSERT_VERSION_MINOR}.${INSERT_VERSION_PATCH}.${INSERT
 set(INSERT_VERSION_STRING "v${INSERT_VERSION}")
 
 
-file(GLOB ${PROJECT_NAME}_INSERT_SOURCES sources/*.cpp)
+# In case if I decide to divide kurs_test.cpp to multiple files
+# file(GLOB ${PROJECT_NAME}_INSERT_SOURCES sources/*.cpp)
+set(${PROJECT_NAME}_INSERT_SOURCES sources/kurs_test.cpp)
 
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_INSERT_SOURCES})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/)
